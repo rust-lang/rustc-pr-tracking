@@ -22,6 +22,7 @@
 import csv
 import datetime
 import json
+import os
 import subprocess
 import urllib.parse
 import urllib.request
@@ -63,7 +64,8 @@ def update_csv_file(path):
 
     # If today already has its own row don't add another one
     if content[1][0] != today:
-        content.insert(1, [today])
+        content.insert(1, None)
+    content[1] = [today]
 
     for label in content[0][1:]:
         content[1].append(str(get_issues_count(label)))
@@ -74,6 +76,9 @@ def update_csv_file(path):
 
 
 if __name__ == "__main__":
+    # Move to this file's directory
+    os.chdir(os.path.abspath(os.path.dirname(__file__)))
+
     # Ensure the repository is up to date
     subprocess.call(["git", "pull", "-q"])
 
