@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>rustc pull requests status</title>
+
+        <link rel="stylesheet" href="web/style.css">
+        <link rel="shortcut icon" href="web/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>rustc pull requests status</h1>
+            <p>Graphs of the number of active pull requests this month.</p>
+        </header>
+        <canvas id="chart"></canvas>
+        <footer>
+            <a class="button" href="https://github.com/pietroalbini/rustc-pr-tracking/blob/master/data/pr-status.csv">
+                Explore the raw data
+            </a>
+        </footer>
+
+        <script type="text/javascript" src="web/chart.min.js"></script>
+        <script type="text/javascript" src="web/main.js"></script>
+    </body>
+</html>

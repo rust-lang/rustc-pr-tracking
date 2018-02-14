@@ -1,0 +1,49 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0.001px;
+}
+
+header {
+    text-align: center;
+    padding: 2em 0.2em;
+
+    background: #eee;
+}
+
+header h1 {
+    margin: 0 0 0.3em 0;
+}
+
+header p {
+    margin: 0;
+}
+
+canvas {
+    margin: 2em auto;
+    max-width: 80em;
+    min-height: 20em;
+}
+
+footer {
+    margin: 2em 0.2em;
+    text-align: center;
+}
+
+
+.button {
+    background: #bf4d28;
+    color: #fff;
+    text-decoration: none;
+
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+
+    transition: opacity 0.2s ease-out;
+    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+    opacity: 0.9;
+}
