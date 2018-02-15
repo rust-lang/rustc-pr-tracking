@@ -66,6 +66,22 @@ function process_data(data) {
             tooltips: {
                 mode: 'index',
                 intersect: false,
+                multiKeyBackground: 'transparent',
+
+                titleMarginBottom: 8,
+                footerMarginTop: 12,
+                footerFontStyle: 'normal',
+
+                callbacks: {
+                    footer: function(items) {
+                        var sum = 0;
+                        for (var i = 0; i < items.length; i++) {
+                            sum += items[i].yLabel;
+                        }
+
+                        return 'Total PRs:  ' + sum;
+                    },
+                }
             }
         }
     });
