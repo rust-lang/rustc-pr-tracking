@@ -32,10 +32,6 @@ API_URL = "https://api.github.com/search/issues"
 
 DATA_FILE = "data/pr-status.csv"
 
-GIT_NAME = "rustc stats updater"
-GIT_EMAIL = "cat@pietroalbini.org"
-GIT_COMMIT_MSG = "Automatic stats update"
-
 REPOSITORY = "rust-lang/rust"
 
 
@@ -76,21 +72,4 @@ def update_csv_file(path):
 
 
 if __name__ == "__main__":
-    # Move to this file's directory
-    os.chdir(os.path.abspath(os.path.dirname(__file__)))
-
-    # Ensure the repository is up to date
-    subprocess.call(["git", "pull", "-q"])
-
     update_csv_file(DATA_FILE)
-
-    # Commit and push changes
-    subprocess.call(["git", "add", DATA_FILE])
-    subprocess.call([
-        "git",
-        "-c", "commit.gpgsign=false",
-        "-c", "user.name=%s" % GIT_NAME,
-        "-c", "user.email=%s" % GIT_EMAIL,
-        "commit", "-m", GIT_COMMIT_MSG, "-q",
-    ])
-    subprocess.call(["git", "push", "-q"])
