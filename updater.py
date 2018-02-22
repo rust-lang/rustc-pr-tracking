@@ -76,6 +76,12 @@ def update_csv_file(http_session, path):
 if __name__ == "__main__":
     http_session = requests.Session()
 
+    if "GITHUB_TOKEN" in os.environ:
+        http_session.auth = ('x-token', os.environ["GITHUB_TOKEN"])
+    else:
+        print("Warning: the $GITHUB_TOKEN environment variable is not set!")
+        print("The script will still work, but it might be rate limited.")
+
     # If a list of files to update isn't provided through args, update all the
     # .csv files in the `data/` directory
     files = sys.argv[1:]
@@ -87,4 +93,4 @@ if __name__ == "__main__":
                 files.append(os.path.join(path, file))
 
     for file in files:
-        update_csv_file(session, file)
+        update_csv_file(http_session, file)

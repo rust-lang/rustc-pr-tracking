@@ -1,0 +1,18 @@
+language: python
+python: 3.6
+
+
+install:
+  - pip install requests
+
+script:
+  - ./ci.sh
+
+
+env:
+  # $GITHUB_TOKEN environment variable
+  # Currently a `public_repo` token of `pietroalbini-cat`
+  - secure: "KUUdKhPI5v+FAZ1ffG7kaNIEFopKH0cn2r7+vPPnMrekYMX0/QupWEQ5HqGx1u3NJnvATZwqFideiSKi9/QbNC12MZnyTmOwAqWn8BXt/SSW8nwFimMhSuyZ+WT47UdSrmPYzbgIlK9uU1KtC2lMtmAIdEH5UDSolCieL8h+o16SLWHC6U5VtSmZajo8WMrDbUNhctnNu9npTcs96ueJqcZs06W7HviKfHl5ym2poygJZCtvdQIQnlNHpdfUQXagCSuGFP2ikJ9ok4Z3hbXK6NF3mSsuVccSSA622HCMzxFPdjDPlLYVtMVQS1z/glKWeBIkA+ZuemI4WOEoSBtiWXErHvdbMfyVGYCsN6QLOz9m7FU636Z/cKKz/d/4jITCBfwidiAcBQQfDSc1ldWjVTF4uE8p0N4Ozt0+bvRzxrxrpZNAkI7+SXkUU86TaqIEV6DiSRZs4E6c/VOubV9xoP5EjaSGVWyPvUhXt452Hjjc6UP6r39pTfSFLMDZ8+yW2mvvtSHNIT8/pmGrYrn4j9eVUAbKG0a80Vg6N1mWYGfeEHtRuT6s/ob3Ea52maquV6dTvGi5kor74lNsqNPpjUThO3OrbaF9uJ+9nNy8LpBHVCvAyem1DmkglwBxWzvStGasdBg14dbAdasHZrGzPXNjFZHUTosTjsuc3JRzS/w="
+
+notifications:
+  email: false
