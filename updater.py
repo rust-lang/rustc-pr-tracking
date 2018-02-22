@@ -24,8 +24,9 @@ import datetime
 import json
 import os
 import subprocess
-import urllib.parse
-import urllib.request
+import time
+
+import requests
 
 
 API_URL = "https://api.github.com/search/issues"
@@ -35,22 +36,24 @@ DATA_FILE = "data/pr-status.csv"
 REPOSITORY = "rust-lang/rust"
 
 
-def get_issues_count(label):
+def get_issues_count(http_session, label):
     """Get the number of issues with the provided label"""
     query = "is:pr is:open label:%s repo:%s" % (label, REPOSITORY)
 
-    args = urllib.parse.urlencode({"q": query})
-    with urllib.request.urlopen("%s?%s" % (API_URL, args)) as f:
-        data = json.loads(f.read().decode("utf-8"))
+    while True:
+        res = http_session.get(API_URL, params={"q": query})
 
-    try:
-        return data["total_count"]
-    except KeyError:
-        print("Error: GitHub API rate limits reached -- try again later.")
-        exit(1)
+        # Properly handle rate limits
+        if res.status_code == 403:
+            wait = float(res.headers["X-RateLimit-Reset"]) - time.time() + 1
+            print("Rate limit reached, waiting %s seconds..." % int(wait))
+            time.sleep(wait)
+            continue
+
+        return res.json()["total_count"]
 
 
-def update_csv_file(path):
+def update_csv_file(http_session, path):
     """Add today's records to the provided csv file"""
     today = str(datetime.date.today())
 
@@ -64,7 +67,7 @@ def update_csv_file(path):
     content[1] = [today]
 
     for label in content[0][1:]:
-        content[1].append(str(get_issues_count(label)))
+        content[1].append(str(get_issues_count(http_session, label)))
 
     with open(path, "w") as f:
         writer = csv.writer(f, lineterminator="\n")
@@ -72,4 +75,4 @@ def update_csv_file(path):
 
 
 if __name__ == "__main__":
-    update_csv_file(DATA_FILE)
+    update_csv_file(requests.Session(), DATA_FILE)
