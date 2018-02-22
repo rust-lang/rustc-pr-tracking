@@ -1,11 +1,13 @@
-# rustc's pull requests tracking
+# Rustc PR tracking
 
-This repository tracks the status of rustc's PRs over time: historic data is
-stored in it, and a bot adds new data every day.
+This repository tracks the status of rustc's PRs over time: all the data is
+available in the CSV format, and it's updated daily by a bot running on Travis
+CI. A [Web dashboard](https://pietroalbini.github.io/rustc-pr-tracking/) is
+also available with graphs of the collected data.
 
-The raw data is available in CSV format in the `data/` directory, and a [web
-dashboard](https://pietroalbini.github.io/rustc-pr-tracking/) is available with
-a chart.
+The content of this repository is released under the MIT license.
+
+[![Build Status](https://travis-ci.org/pietroalbini/rustc-pr-tracking.svg?branch=master)](https://travis-ci.org/pietroalbini/rustc-pr-tracking)
 
 ## Adding new graphs
 
@@ -31,16 +33,24 @@ If you also want to show a graph on the web dashboard, add this snippet to the
 
 You can then run the updater script to populate today's data automatically.
 
-## Running the updater script
+## Running the updater script locally
 
-The updater script requires Python 3 and git installed on the local machine,
-and must be executed inside a clone of this repository. You can execute the
-script simply with:
+The updater script can also be run locally: you just need to have Python 3 and
+the python-requests library installed.
 
 ```
+# Update all the CSV files in the data/ directory
 $ python3 updater.py
+
+# Update just the data/sample.csv file
+$ python3 updater.py data/sample.csv
 ```
 
-The script will automatically pull from the remote, update the data, commit it
-with the bot details and push the new commit to the remote. It is released
-under the MIT license.
+If the `GITHUB_TOKEN` environment variable is present, the script will use it
+to authenticate with the GitHub API: it can work fine without it, but the API
+rate limits are pretty low for unauthenticated requests (don't worry, the
+script will wait for the limits to expire, it will just take more time to
+finish).
+
+**Do not run** the `ci.sh` script: it's meant to be run by Travis, and it will
+push new commits to this repository.
