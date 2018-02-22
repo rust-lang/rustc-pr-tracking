@@ -30,6 +30,12 @@ GIT_REPO="pietroalbini/rustc-pr-tracking"
 GIT_BRANCH="master"
 
 
+if [[ -z "${TRAVIS+x}" ]]; then
+    echo "Error: this script is meant to be run on Travis CI."
+    exit 1
+fi
+
+
 if [[ -z "${GITHUB_TOKEN}" ]]; then
     echo "Error: the \$GITHUB_TOKEN environment variable is not set!"
     exit 1
