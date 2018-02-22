@@ -1,12 +1,14 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    padding: 0.001px;
+    padding: 0.5em;
+
+    background: #eee;
 }
 
 header {
     text-align: center;
-    padding: 2em 0.2em;
+    padding: 2em 0.2em 1em 0.2em;
 
     background: #eee;
 }
@@ -19,11 +21,27 @@ header p {
     margin: 0;
 }
 
-canvas {
+
+.graph {
+    max-width: 82em;
     margin: 2em auto;
-    max-width: 80em;
-    min-height: 20em;
+    padding: 1em;
+
+    border-radius: 0.2em;
+    background: #fff;
+    box-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
 }
+
+.graph h2 {
+    font-weight: 400;
+    font-size: 1.3em;
+    text-align: center;
+
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 1rem;
+    border-bottom: 0.1rem solid #eee;
+}
+
 
 footer {
     margin: 2em 0.2em;

@@ -24,21 +24,19 @@ import datetime
 import json
 import os
 import subprocess
+import sys
 import time
 
 import requests
 
 
 API_URL = "https://api.github.com/search/issues"
-
-DATA_FILE = "data/pr-status.csv"
-
 REPOSITORY = "rust-lang/rust"
 
 
-def get_issues_count(http_session, label):
+def get_issues_count(http_session, query, param):
     """Get the number of issues with the provided label"""
-    query = "is:pr is:open label:%s repo:%s" % (label, REPOSITORY)
+    query = "is:pr is:open repo:%s %s" % (REPOSITORY, query % param)
 
     while True:
         res = http_session.get(API_URL, params={"q": query})
@@ -62,12 +60,13 @@ def update_csv_file(http_session, path):
         content = list(csv.reader(f))
 
     # If today already has its own row don't add another one
-    if content[1][0] != today:
+    if len(content) == 1 or content[1][0] != today:
         content.insert(1, None)
     content[1] = [today]
 
-    for label in content[0][1:]:
-        content[1].append(str(get_issues_count(http_session, label)))
+    query = content[0][0]
+    for param in content[0][1:]:
+        content[1].append(str(get_issues_count(http_session, query, param)))
 
     with open(path, "w") as f:
         writer = csv.writer(f, lineterminator="\n")
@@ -75,4 +74,17 @@ def update_csv_file(http_session, path):
 
 
 if __name__ == "__main__":
-    update_csv_file(requests.Session(), DATA_FILE)
+    http_session = requests.Session()
+
+    # If a list of files to update isn't provided through args, update all the
+    # .csv files in the `data/` directory
+    files = sys.argv[1:]
+    if not files:
+        path = os.path.join(os.path.dirname(__file__), "data")
+
+        for file in os.listdir(path):
+            if file.endswith(".csv"):
+                files.append(os.path.join(path, file))
+
+    for file in files:
+        update_csv_file(session, file)

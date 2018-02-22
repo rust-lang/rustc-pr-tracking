@@ -3,19 +3,27 @@
     <head>
         <meta charset="utf-8">
 
-        <title>rustc pull requests status</title>
+        <title>Rustc PR tracking</title>
 
         <link rel="stylesheet" href="web/style.css">
         <link rel="shortcut icon" href="web/favicon.ico">
     </head>
     <body>
         <header>
-            <h1>rustc pull requests status</h1>
-            <p>Graphs of the number of active pull requests this month.</p>
+            <h1>Rustc PR tracking</h1>
+            <p>
+                Graphs about pull requests on the rust-lang/rust repo this
+                month.
+            </p>
         </header>
-        <canvas id="chart"></canvas>
+
+        <div class="graph" data-url="data/pr-status.csv">
+            <h2>Pull requests status</h2>
+            <canvas></canvas>
+        </div>
+
         <footer>
-            <a class="button" href="https://github.com/pietroalbini/rustc-pr-tracking/blob/master/data/pr-status.csv">
+            <a class="button" href="https://github.com/pietroalbini/rustc-pr-tracking/tree/master/data">
                 Explore the raw data
             </a>
         </footer>

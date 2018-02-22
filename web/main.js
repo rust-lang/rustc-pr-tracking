@@ -10,19 +10,24 @@ function parse_csv(raw) {
 }
 
 
-function update_chart() {
-    var req = new XMLHttpRequest();
-    req.open("GET", "data/pr-status.csv", true);
-    req.onreadystatechange = function() {
-        if (req.readyState == XMLHttpRequest.DONE && req.status == 200) {
-            process_data(req.responseText);
-        }
-    };
-    req.send();
+function update_graphs() {
+    var graphs = document.querySelectorAll("div.graph");
+    for (var i = 0; i < graphs.length; i++) {
+        var graph = graphs[i];
+
+        var req = new XMLHttpRequest();
+        req.open("GET", graph.getAttribute("data-url"), true);
+        req.onreadystatechange = function() {
+            if (this.req.readyState == XMLHttpRequest.DONE && this.req.status == 200) {
+                process_data(this.req.responseText, this.graph);
+            }
+        }.bind({req: req, graph, graph});
+        req.send();
+    }
 }
 
 
-function process_data(data) {
+function process_data(data, graph) {
     var csv = parse_csv(data);
     var data = {
         labels: [],
@@ -50,7 +55,7 @@ function process_data(data) {
         }
     }
 
-    var ctx = document.getElementById("chart").getContext('2d');
+    var ctx = graph.getElementsByTagName("canvas")[0].getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: data,
@@ -88,4 +93,4 @@ function process_data(data) {
 }
 
 
-update_chart();
+update_graphs();
