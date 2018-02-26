@@ -2,12 +2,12 @@
 
 This repository tracks the status of rustc's PRs over time: all the data is
 available in the CSV format, and it's updated daily by a bot running on Travis
-CI. A [Web dashboard](https://pietroalbini.github.io/rustc-pr-tracking/) is
+CI. A [Web dashboard](https://rust-lang-nursery.github.io/rustc-pr-tracking/) is
 also available with graphs of the collected data.
 
 The content of this repository is released under the MIT license.
 
-[![Build Status](https://travis-ci.org/pietroalbini/rustc-pr-tracking.svg?branch=master)](https://travis-ci.org/pietroalbini/rustc-pr-tracking)
+[![Build Status](https://travis-ci.org/rust-lang-nursery/rustc-pr-tracking.svg?branch=master)](https://travis-ci.org/rust-lang-nursery/rustc-pr-tracking)
 
 ## Adding new graphs
 
