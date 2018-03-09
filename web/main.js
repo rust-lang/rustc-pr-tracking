@@ -61,8 +61,14 @@ function process_data(data, graph) {
 
     // First of all create all the new datasets
     for (var i = 1; i < csv[0].length; i++) {
+        // Strip param from nice labels
+        var label = csv[0][i];
+        if (label.indexOf("|") !== -1) {
+            label = label.split("|", 2)[1];
+        }
+
         data.datasets.push({
-            label: csv[0][i],
+            label: label,
             data: [],
             backgroundColor: random_colors[i - 1],
         });

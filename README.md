@@ -21,8 +21,9 @@ this row counts how much PRs each of the listed labels has:
 label:{param},S-waiting-on-review,S-waiting-on-author
 ```
 
-If you also want to show a graph on the web dashboard, add this snippet to the
-`index.html` file:
+You can add pretty labels to each column by putting the label after `|`: this
+way it's possible to hide hard-to-read query params. If you also want to show a
+graph on the web dashboard, add this snippet to the `index.html` file:
 
 ```
 <div class="graph" data-url="data/your-file-name.csv">

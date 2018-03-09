@@ -67,6 +67,10 @@ class QueryFormatter(string.Formatter):
 
 def get_issues_count(http_session, query, param):
     """Get the number of issues with the provided label"""
+    # Strip pretty labels from the query
+    if "|" in param:
+        param = param.split("|")[0]
+
     query = "is:pr is:open repo:{repo} {query}".format(
         repo=REPOSITORY,
         query=QueryFormatter().format(query, param=param),
