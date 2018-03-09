@@ -36,7 +36,10 @@ REPOSITORY = "rust-lang/rust"
 
 def get_issues_count(http_session, query, param):
     """Get the number of issues with the provided label"""
-    query = "is:pr is:open repo:%s %s" % (REPOSITORY, query % param)
+    query = "is:pr is:open repo:{repo} {query}".format(
+        repo=REPOSITORY,
+        query=query.format(param=param)
+    )
 
     while True:
         res = http_session.get(API_URL, params={"q": query})

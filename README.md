@@ -13,12 +13,12 @@ The content of this repository is released under the MIT license.
 
 If you want to track data for a new graph, you need to create a new `.csv` file
 in the `data` directory with just the first row. The first cell in that row is
-the query you want to use (with `%s` as the placeholder), and in the other
-cells the various strings that will replace `%s` in the query. For example,
+the query you want to use (with `{param}` as the placeholder), and in the other
+cells the various strings that will replace `{param}` in the query. For example,
 this row counts how much PRs each of the listed labels has:
 
 ```
-label:%s,S-waiting-on-review,S-waiting-on-author
+label:{param},S-waiting-on-review,S-waiting-on-author
 ```
 
 If you also want to show a graph on the web dashboard, add this snippet to the
