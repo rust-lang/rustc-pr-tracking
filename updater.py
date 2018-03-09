@@ -23,6 +23,7 @@ import csv
 import datetime
 import json
 import os
+import string
 import subprocess
 import sys
 import time
@@ -34,11 +35,41 @@ API_URL = "https://api.github.com/search/issues"
 REPOSITORY = "rust-lang/rust"
 
 
+# GitHub doesn't support relative dates on `created:` and `updated:`, so this
+# allows the CSV files to use `{param:relative-date}`
+class QueryFormatter(string.Formatter):
+    def format_field(self, value, format_spec):
+        if format_spec == "relative-date":
+            # Support date ranges
+            if ".." in value:
+                start, end = value.split("..", 1)
+
+                return "%s..%s" % (
+                    self.format_relative_date(start),
+                    self.format_relative_date(end),
+                )
+            else:
+                # Properly handle comparison operators
+                cmp = ""
+                for op in ">", ">=", "<", "<=":
+                    if value.startswith(op):
+                        cmp = op
+                        value = value[len(op):]
+                        break
+
+                return cmp+self.format_relative_date(value)
+        else:
+            return super().format_field(value, format_spec)
+
+    def format_relative_date(self, date):
+        return str(datetime.date.today() - datetime.timedelta(days=int(date)))
+
+
 def get_issues_count(http_session, query, param):
     """Get the number of issues with the provided label"""
     query = "is:pr is:open repo:{repo} {query}".format(
         repo=REPOSITORY,
-        query=query.format(param=param)
+        query=QueryFormatter().format(query, param=param),
     )
 
     while True:
@@ -51,7 +82,13 @@ def get_issues_count(http_session, query, param):
             time.sleep(wait)
             continue
 
-        return res.json()["total_count"]
+        data = res.json()
+        if "errors" in data:
+            for error in data["errors"]:
+                print("Error while searching for '%s': %s" % (query, error["message"]))
+            exit(1)
+        else:
+            return data["total_count"]
 
 
 def update_csv_file(http_session, path):
