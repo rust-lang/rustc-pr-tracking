@@ -75,11 +75,19 @@ function process_data(data, graph) {
     }
 
     // Then load all the days
-    for (var i = Math.min(max_days, csv.length - 1); i >= 1; i--) {
-        data.labels.push(csv[i][0]);
+    for (var i = max_days; i >= 1; i--) {
+        if (i >= csv.length - 1) {
+            data.labels.push("");
 
-        for (var j = 1; j < csv[i].length; j++) {
-            data.datasets[j - 1].data.push(csv[i][j]);
+            for (var j = 0; j < data.datasets.length; j++) {
+                data.datasets[j].data.push(0);
+            }
+        } else {
+            data.labels.push(csv[i][0]);
+
+            for (var j = 1; j < csv[i].length; j++) {
+                data.datasets[j - 1].data.push(csv[i][j]);
+            }
         }
     }
 
