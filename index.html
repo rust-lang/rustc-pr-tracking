@@ -17,17 +17,21 @@
             </p>
         </header>
 
-        <div class="graph" data-url="data/pr-status.csv">
+        <ul id="toc">
+            <!-- Populated by JavaScript -->
+        </ul>
+
+        <div class="graph" id="pr-status">
             <h2>Pull requests status</h2>
             <canvas></canvas>
         </div>
 
-        <div class="graph" data-url="data/pr-activity.csv">
+        <div class="graph" id="pr-activity">
             <h2>Last activity on pull requests</h2>
             <canvas></canvas>
         </div>
 
-        <div class="graph" data-url="data/pr-age.csv">
+        <div class="graph" id="pr-age">
             <h2>Pull requests creation dates</h2>
             <canvas></canvas>
         </div>

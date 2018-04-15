@@ -38,7 +38,8 @@ function update_graphs() {
         var graph = graphs[i];
 
         var req = new XMLHttpRequest();
-        req.open("GET", graph.getAttribute("data-url"), true);
+        var url = "data/" + graph.id + ".csv";
+        req.open("GET", url, true);
         req.onreadystatechange = function() {
             if (this.req.readyState == XMLHttpRequest.DONE && this.req.status == 200) {
                 process_data(this.req.responseText, this.graph);
@@ -129,4 +130,21 @@ function process_data(data, graph) {
 }
 
 
+function populate_toc() {
+    var toc = document.getElementById("toc");
+
+    var graphs = document.querySelectorAll(".graph");
+    for (var i = 0; i < graphs.length; i++) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.classList.add("button");
+        a.href = "#" + graphs[i].id;
+        a.innerHTML = graphs[i].querySelector("h2").innerHTML;
+        li.appendChild(a);
+        toc.appendChild(li);
+    }
+}
+
+
+populate_toc();
 update_graphs();

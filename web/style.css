@@ -43,6 +43,16 @@ header p {
     margin: 0;
 }
 
+ul#toc {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+ul#toc li {
+    display: inline-block;
+    margin: 0.25em;
+}
 
 .graph {
     max-width: 82em;

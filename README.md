@@ -26,7 +26,7 @@ way it's possible to hide hard-to-read query params. If you also want to show a
 graph on the web dashboard, add this snippet to the `index.html` file:
 
 ```
-<div class="graph" data-url="data/your-file-name.csv">
+<div class="graph" id="your-file-name-without-extension">
     <h2>Your section title</h2>
     <canvas></canvas>
 </div>
