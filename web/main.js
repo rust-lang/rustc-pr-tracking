@@ -71,7 +71,7 @@ function process_data(data, graph) {
         data.datasets.push({
             label: label,
             data: [],
-            backgroundColor: random_colors[i - 1],
+            backgroundColor: random_colors[(i - 1) % random_colors.length],
         });
     }
 
