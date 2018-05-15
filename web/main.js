@@ -57,7 +57,7 @@ function process_data(data, graph) {
         datasets: [],
     };
 
-    var random_colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6"];
+    var random_colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#66aa00", "#dd4477"];
     var max_days = 30;
 
     // First of all create all the new datasets
