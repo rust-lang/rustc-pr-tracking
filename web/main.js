@@ -20,6 +20,10 @@
  */
 
 
+var raw_data = {};
+var last_update = {};
+
+
 function parse_csv(raw) {
     var result = [];
 
@@ -32,7 +36,7 @@ function parse_csv(raw) {
 }
 
 
-function update_graphs() {
+function fetch_graphs() {
     var graphs = document.querySelectorAll("div.graph");
     for (var i = 0; i < graphs.length; i++) {
         var graph = graphs[i];
@@ -42,7 +46,8 @@ function update_graphs() {
         req.open("GET", url, true);
         req.onreadystatechange = function() {
             if (this.req.readyState == XMLHttpRequest.DONE && this.req.status == 200) {
-                process_data(this.req.responseText, this.graph);
+                raw_data[this.graph.id] = this.req.responseText;
+                process_data(this.graph);
             }
         }.bind({req: req, graph, graph});
         req.send();
@@ -50,15 +55,29 @@ function update_graphs() {
 }
 
 
-function process_data(data, graph) {
-    var csv = parse_csv(data);
+function update_graphs() {
+    var graphs = document.querySelectorAll("div.graph");
+    for (var i = 0; i < graphs.length; i++) {
+        process_data(graphs[i]);
+    }
+}
+
+
+function process_data(graph) {
+    var csv = parse_csv(raw_data[graph.id]);
     var data = {
         labels: [],
         datasets: [],
     };
 
     var random_colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#66aa00", "#dd4477"];
-    var max_days = 30;
+    var max_days = document.getElementById("days-count").value;
+
+    if (graph.id in last_update && max_days == last_update[graph.id]) {
+        return;
+    } else {
+        last_update[graph.id] = max_days;
+    }
 
     // First of all create all the new datasets
     for (var i = 1; i < csv[0].length; i++) {
@@ -92,11 +111,17 @@ function process_data(data, graph) {
         }
     }
 
-    var ctx = graph.getElementsByTagName("canvas")[0].getContext('2d');
-    var myChart = new Chart(ctx, {
+    var canvas = graph.getElementsByTagName("canvas")[0];
+    canvas.parentElement.appendChild(document.createElement("canvas"));
+    canvas.parentElement.removeChild(canvas);
+
+    var canvas = graph.getElementsByTagName("canvas")[0];
+    var ctx = canvas.getContext('2d');
+    new Chart(ctx, {
         type: 'line',
         data: data,
         options: {
+            animation: false,
             scales: {
                 yAxes: [{
                     ticks: {
@@ -147,4 +172,19 @@ function populate_toc() {
 
 
 populate_toc();
-update_graphs();
+fetch_graphs();
+
+
+document.getElementById("days-count").addEventListener("keydown", function(e) {
+    if (e.keyCode == 13) {
+        update_graphs();
+    }
+})
+
+document.getElementById("days-count").addEventListener("focusout", function() {
+    if (this.value === "") {
+        this.value = "30";
+    }
+
+    update_graphs();
+})
