@@ -1,4 +1,5 @@
 updated:{param:relative-date},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2018-05-19,34,58,32,8,0,0
 2018-05-18,39,56,27,7,0,0
 2018-05-17,61,53,10,5,0,0
 2018-05-16,63,65,10,6,0,0
