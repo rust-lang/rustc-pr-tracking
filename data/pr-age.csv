@@ -1,4 +1,5 @@
 created:{param:relative-date},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2018-06-30,9,37,13,23,34,36
 2018-06-29,8,28,14,23,32,37
 2018-06-28,10,23,16,28,32,39
 2018-06-27,10,19,15,30,35,40
