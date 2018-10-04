@@ -72,11 +72,14 @@ function process_data(graph) {
 
     var random_colors = ["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#66aa00", "#dd4477"];
     var max_days = document.getElementById("days-count").value;
+    var relative = document.getElementById("relative").checked;
 
-    if (graph.id in last_update && max_days == last_update[graph.id]) {
+    var state = [max_days, relative];
+
+    if (graph.id in last_update && state == last_update[graph.id]) {
         return;
     } else {
-        last_update[graph.id] = max_days;
+        last_update[graph.id] = state;
     }
 
     // First of all create all the new datasets
@@ -105,8 +108,19 @@ function process_data(graph) {
         } else {
             data.labels.push(csv[i][0]);
 
-            for (var j = 1; j < csv[i].length; j++) {
-                data.datasets[j - 1].data.push(csv[i][j]);
+            if (relative === true) {
+                var sum = 0;
+
+                for (var j = 1; j < csv[i].length; j++) {
+                    sum += parseInt(csv[i][j]);
+                }
+                for (var j = 1; j < csv[i].length; j++) {
+                    data.datasets[j - 1].data.push(csv[i][j] * 100 / sum);
+                }
+            } else {
+                for (var j = 1; j < csv[i].length; j++) {
+                    data.datasets[j - 1].data.push(csv[i][j]);
+                }
             }
         }
     }
@@ -186,5 +200,9 @@ document.getElementById("days-count").addEventListener("focusout", function() {
         this.value = "30";
     }
 
+    update_graphs();
+})
+
+document.getElementById("relative").addEventListener("input", function(e) {
     update_graphs();
 })
