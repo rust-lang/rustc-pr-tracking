@@ -115,7 +115,7 @@ function process_data(graph) {
                     sum += parseInt(csv[i][j]);
                 }
                 for (var j = 1; j < csv[i].length; j++) {
-                    data.datasets[j - 1].data.push(csv[i][j] * 100 / sum);
+                    data.datasets[j - 1].data.push(Math.round((csv[i][j] * 100 / sum) * 100) / 100);
                 }
             } else {
                 for (var j = 1; j < csv[i].length; j++) {
@@ -154,13 +154,23 @@ function process_data(graph) {
                 footerFontStyle: 'normal',
 
                 callbacks: {
-                    footer: function(items) {
-                        var sum = 0;
-                        for (var i = 0; i < items.length; i++) {
-                            sum += items[i].yLabel;
+                    label: function(item) {
+                        var label = data.datasets[item.datasetIndex].label + ':  ' + item.yLabel;
+                        if (relative) {
+                            return label + '%';
+                        } else {
+                            return label;
                         }
+                    },
+                    footer: function(items) {
+                        if (!relative) {
+                            var sum = 0;
+                            for (var i = 0; i < items.length; i++) {
+                                sum += items[i].yLabel;
+                            }
 
-                        return 'Total PRs:  ' + sum;
+                            return 'Total PRs:  ' + sum;
+                        }
                     },
                 }
             }
