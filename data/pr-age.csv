@@ -1,4 +1,5 @@
 created:{param:relative-date},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-01-19,6,27,15,19,28,78
 2019-01-18,14,45,15,29,36,78
 2019-01-17,16,37,13,27,39,76
 2019-01-16,18,22,14,30,36,76
