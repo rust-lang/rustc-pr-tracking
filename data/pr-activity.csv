@@ -1,4 +1,5 @@
 updated:{param:relative-date},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-01-23,42,64,28,24,9,4
 2019-01-22,65,34,34,15,8,4
 2019-01-21,59,35,35,32,6,4
 2019-01-20,30,48,36,35,15,7
