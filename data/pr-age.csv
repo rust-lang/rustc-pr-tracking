@@ -1,4 +1,5 @@
 is:open created:{param:relative-date},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-02-06,29,48,30,15,23,57
 2019-02-05,14,41,24,18,23,55
 2019-02-04,23,46,21,17,23,55
 2019-02-03,30,25,14,18,24,58
