@@ -13,12 +13,13 @@ The content of this repository is released under the MIT license.
 
 If you want to track data for a new graph, you need to create a new `.csv` file
 in the `data` directory with just the first row. The first cell in that row is
-the query you want to use (with `{param}` as the placeholder), and in the other
-cells the various strings that will replace `{param}` in the query. For example,
-this row counts how much PRs each of the listed labels has:
+the query you want to use (with `{{param}}` as the placeholder), and in the
+other cells the various strings that will replace `{{param}}` in the query (the
+query is actually a Jinja2 template). For example, this row counts how much PRs
+each of the listed labels has:
 
 ```
-label:{param},S-waiting-on-review,S-waiting-on-author
+label:{{param}},S-waiting-on-review,S-waiting-on-author
 ```
 
 You can add pretty labels to each column by putting the label after `|`: this

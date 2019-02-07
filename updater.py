@@ -23,10 +23,10 @@ import csv
 import datetime
 import json
 import os
-import string
 import subprocess
 import sys
 import time
+import jinja2
 
 import requests
 
@@ -36,44 +36,41 @@ REPOSITORY = "rust-lang/rust"
 
 
 # GitHub doesn't support relative dates on `created:` and `updated:`, so this
-# allows the CSV files to use `{param:relative-date}`
-class QueryFormatter(string.Formatter):
-    def format_field(self, value, format_spec):
-        if format_spec == "relative-date":
-            # Support date ranges
-            if ".." in value:
-                start, end = value.split("..", 1)
-
-                return "%s..%s" % (
-                    self.format_relative_date(start),
-                    self.format_relative_date(end),
-                )
-            else:
-                # Properly handle comparison operators
-                cmp = ""
-                for op in ">", ">=", "<", "<=":
-                    if value.startswith(op):
-                        cmp = op
-                        value = value[len(op):]
-                        break
-
-                return cmp+self.format_relative_date(value)
-        else:
-            return super().format_field(value, format_spec)
-
-    def format_relative_date(self, date):
+# allows the CSV files to use `{{param|relative_date}}`
+def filter_relative_date(value):
+    def format_relative_date(date):
         return str(datetime.date.today() - datetime.timedelta(days=int(date)))
 
+    # Support date ranges
+    if ".." in value:
+        start, end = value.split("..", 1)
 
-def get_issues_count(http_session, query, param):
+        return "%s..%s" % (
+            format_relative_date(start),
+            format_relative_date(end),
+        )
+    else:
+        # Properly handle comparison operators
+        cmp = ""
+        for op in ">", ">=", "<", "<=":
+            if value.startswith(op):
+                cmp = op
+                value = value[len(op):]
+                break
+
+        return cmp+format_relative_date(value)
+
+
+def get_issues_count(http_session, jinja_env, query, param):
     """Get the number of issues with the provided label"""
     # Strip pretty labels from the query
     if "|" in param:
         param = param.split("|")[0]
 
+    query_tmpl = jinja_env.from_string(query)
     query = "is:pr repo:{repo} {query}".format(
         repo=REPOSITORY,
-        query=QueryFormatter().format(query, param=param),
+        query=query_tmpl.render(param=param),
     )
 
     while True:
@@ -108,9 +105,13 @@ def update_csv_file(http_session, path):
         content.insert(1, None)
     content[1] = [today]
 
+    # Setup the Jinja2 environment
+    jinja_env = jinja2.Environment()
+    jinja_env.filters["relative_date"] = filter_relative_date
+
     query = content[0][0]
     for param in content[0][1:]:
-        content[1].append(str(get_issues_count(http_session, query, param)))
+        content[1].append(str(get_issues_count(http_session, jinja_env, query, param)))
 
     with open(path, "w") as f:
         writer = csv.writer(f, lineterminator="\n")

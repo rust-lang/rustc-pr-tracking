@@ -1,16 +1,1 @@
-is:merged merged:{param:relative-date},>1|today
-2019-02-06,4
-2019-02-05,27
-2019-02-04,2
-2019-02-03,6
-2019-02-02,4
-2019-02-01,5
-2019-01-31,17
-2019-01-30,5
-2019-01-29,11
-2019-01-28,5
-2019-01-27,6
-2019-01-26,19
-2019-01-25,19
-2019-01-24,16
-2019-01-23,2
+"is:merged merged:{{"">1""|relative_date}} {{param}}",label:merged-by-bors|merged by bors,-label:merged-by-bors|rolled up
