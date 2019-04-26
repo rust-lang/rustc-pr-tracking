@@ -15,7 +15,7 @@
                     <h1>PR tracking</h1>
                     <nav>
                         {% for navpage in site.pages %}
-                            <a href="{{ navpage.url }}" {% if page.repo == navpage.repo %}class="active"{% endif %}>{{ navpage.title }}</a>
+                            <a href=".{{ navpage.url }}" {% if page.repo == navpage.repo %}class="active"{% endif %}>{{ navpage.title }}</a>
                         {% endfor %}
                     </nav>
                 </div>
