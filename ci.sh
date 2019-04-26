@@ -44,7 +44,7 @@ fi
 python3 -m pip install -r requirements.txt
 
 git checkout "${GIT_BRANCH}"
-python3 updater.py
+python3 updater.py rust-lang/rust
 
 
 if git diff --quiet data/; then

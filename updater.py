@@ -32,7 +32,6 @@ import requests
 
 
 API_URL = "https://api.github.com/search/issues"
-REPOSITORY = "rust-lang/rust"
 
 
 # GitHub doesn't support relative dates on `created:` and `updated:`, so this
@@ -61,7 +60,7 @@ def filter_relative_date(value):
         return cmp+format_relative_date(value)
 
 
-def get_issues_count(http_session, jinja_env, query, param):
+def get_issues_count(http_session, repo, jinja_env, query, param):
     """Get the number of issues with the provided label"""
     # Strip pretty labels from the query
     if "|" in param:
@@ -69,7 +68,7 @@ def get_issues_count(http_session, jinja_env, query, param):
 
     query_tmpl = jinja_env.from_string(query)
     query = "is:pr repo:{repo} {query}".format(
-        repo=REPOSITORY,
+        repo=repo,
         query=query_tmpl.render(param=param),
     )
 
@@ -92,7 +91,7 @@ def get_issues_count(http_session, jinja_env, query, param):
             return data["total_count"]
 
 
-def update_csv_file(http_session, path):
+def update_csv_file(http_session, repo, path):
     """Add today's records to the provided csv file"""
     today = str(datetime.date.today())
 
@@ -111,7 +110,7 @@ def update_csv_file(http_session, path):
 
     query = content[0][0]
     for param in content[0][1:]:
-        content[1].append(str(get_issues_count(http_session, jinja_env, query, param)))
+        content[1].append(str(get_issues_count(http_session, repo, jinja_env, query, param)))
 
     with open(path, "w") as f:
         writer = csv.writer(f, lineterminator="\n")
@@ -127,15 +126,20 @@ if __name__ == "__main__":
         print("Warning: the $GITHUB_TOKEN environment variable is not set!")
         print("The script will still work, but it might be rate limited.")
 
+    if len(sys.argv) < 2:
+        print("usage: %s <repo> [files ...]" % sys.argv[0])
+        exit(1)
+    repo = sys.argv[1]
+
     # If a list of files to update isn't provided through args, update all the
     # .csv files in the `data/` directory
-    files = sys.argv[1:]
+    files = sys.argv[2:]
     if not files:
-        path = os.path.join(os.path.dirname(__file__), "data")
+        path = os.path.join(os.path.dirname(__file__), "data", repo)
 
         for file in os.listdir(path):
             if file.endswith(".csv"):
                 files.append(os.path.join(path, file))
 
     for file in files:
-        update_csv_file(http_session, file)
+        update_csv_file(http_session, repo, file)

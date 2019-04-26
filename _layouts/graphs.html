@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="web/style.css">
         <link rel="shortcut icon" href="web/favicon.ico">
     </head>
-    <body>
+    <body data-repo="{{ page.repo }}">
         <header>
             <div class="top-nav">
                 <div class="nav-wrapper">
@@ -46,7 +46,7 @@
             <input id="relative" type="checkbox" value="false">
         </footer>
         <footer>
-            <a class="button" href="https://github.com/rust-lang-nursery/rustc-pr-tracking/tree/master/data">
+            <a class="button" href="https://github.com/rust-lang-nursery/rustc-pr-tracking/tree/master/data/{{ page.repo }}">
                 Explore the raw data
             </a>
         </footer>

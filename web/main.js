@@ -37,12 +37,13 @@ function parse_csv(raw) {
 
 
 function fetch_graphs() {
+    var repo = document.body.getAttribute("data-repo");
     var graphs = document.querySelectorAll("div.graph");
     for (var i = 0; i < graphs.length; i++) {
         var graph = graphs[i];
 
         var req = new XMLHttpRequest();
-        var url = "data/" + graph.id + ".csv";
+        var url = "data/" + repo + "/" + graph.id + ".csv";
         req.open("GET", url, true);
         req.onreadystatechange = function() {
             if (this.req.readyState == XMLHttpRequest.DONE && this.req.status == 200) {
