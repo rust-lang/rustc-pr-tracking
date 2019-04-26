@@ -45,6 +45,7 @@ python3 -m pip install -r requirements.txt
 
 git checkout "${GIT_BRANCH}"
 python3 updater.py rust-lang/rust
+python3 updater.py rust-lang/crates.io
 
 
 if git diff --quiet data/; then
