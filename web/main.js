@@ -179,23 +179,6 @@ function process_data(graph) {
 }
 
 
-function populate_toc() {
-    var toc = document.getElementById("toc");
-
-    var graphs = document.querySelectorAll(".graph");
-    for (var i = 0; i < graphs.length; i++) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.classList.add("button");
-        a.href = "#" + graphs[i].id;
-        a.innerHTML = graphs[i].querySelector("h2").innerHTML;
-        li.appendChild(a);
-        toc.appendChild(li);
-    }
-}
-
-
-populate_toc();
 fetch_graphs();
 
 

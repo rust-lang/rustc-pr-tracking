@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>{{ page.title }} PR tracking</title>
+
+        <link rel="stylesheet" href="web/style.css">
+        <link rel="shortcut icon" href="web/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <div class="top-nav">
+                <div class="nav-wrapper">
+                    <h1>PR tracking</h1>
+                    <nav>
+                        {% for navpage in site.pages %}
+                            <a href="{{ navpage.url }}" {% if page.repo == navpage.repo %}class="active"{% endif %}>{{ navpage.title }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav-wrapper">
+                    <nav>
+                        {% for item in page.graphs %}
+                            <a href="#{{ item[0] }}">{{ item[1] }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        {% for item in page.graphs %}
+            <div class="graph" id="{{ item[0] }}">
+                <h2>{{ item[1] }}</h2>
+                <canvas></canvas>
+            </div>
+        {% endfor %}
+
+        <footer>
+            Number of days:
+            <input id="days-count" type="text" value="30" maxlength="3">
+            <br/>
+            Show percentages instead of absolute numbers:
+            <input id="relative" type="checkbox" value="false">
+        </footer>
+        <footer>
+            <a class="button" href="https://github.com/rust-lang-nursery/rustc-pr-tracking/tree/master/data">
+                Explore the raw data
+            </a>
+        </footer>
+
+        <script type="text/javascript" src="web/chart.min.js"></script>
+        <script type="text/javascript" src="web/main.js"></script>
+    </body>
+</html>
+

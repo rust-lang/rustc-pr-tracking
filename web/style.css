@@ -19,39 +19,62 @@
  *  SOFTWARE.
  */
 
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0.5em;
-
     background: #eee;
 }
 
 header {
-    text-align: center;
-    padding: 2em 0.2em 1em 0.2em;
-
-    background: #eee;
+    background: #fff;
+    margin: -0.5em;
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0 0 0.3em 0;
+header nav {
+    display: flex;
+}
+
+header nav a {
+    padding: 1em;
+    color: inherit;
+    text-decoration: none;
+}
+
+header .nav-wrapper {
+    max-width: 82em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+header .top-nav {
+    background: #398277;
+    color: #fff;
+}
+
+header .top-nav h1 {
+    font-weight: 400;
+    font-size: 1.5em;
+    margin: 0 0.5em;
+    flex: 1;
+}
+
+header .top-nav nav a:hover, header .top-nav nav a.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+header .bottom-nav nav a:hover, header .bottom-nav nav a.active {
+    color: #398277;
 }
 
 header p {
     margin: 0;
-}
-
-ul#toc {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-ul#toc li {
-    display: inline-block;
-    margin: 0.25em;
 }
 
 .graph {
@@ -82,7 +105,7 @@ footer {
 
 
 .button {
-    background: #bf4d28;
+    background: #398277;
     color: #fff;
     text-decoration: none;
 
@@ -91,7 +114,7 @@ footer {
     border-radius: 0.3em;
 
     transition: opacity 0.2s ease-out;
-    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
