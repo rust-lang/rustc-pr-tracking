@@ -24,14 +24,9 @@ label:{{param}},S-waiting-on-review,S-waiting-on-author
 
 You can add pretty labels to each column by putting the label after `|`: this
 way it's possible to hide hard-to-read query params. If you also want to show a
-graph on the web dashboard, add this snippet to the `index.html` file:
-
-```
-<div class="graph" id="your-file-name-without-extension">
-    <h2>Your section title</h2>
-    <canvas></canvas>
-</div>
-```
+graph on the web dashboard, add the file name (without the `.csv`) and the
+title you want for the graph to the `graphs` section of the `.md` file of the
+dashboard you're interested in.
 
 You can then run the updater script to populate today's data automatically.
 
@@ -42,10 +37,10 @@ the python-requests library installed.
 
 ```
 # Update all the CSV files in the data/ directory
-$ python3 updater.py
+$ python3 updater.py <repo-name>
 
 # Update just the data/sample.csv file
-$ python3 updater.py data/sample.csv
+$ python3 updater.py <repo-name> data/sample.csv
 ```
 
 If the `GITHUB_TOKEN` environment variable is present, the script will use it
