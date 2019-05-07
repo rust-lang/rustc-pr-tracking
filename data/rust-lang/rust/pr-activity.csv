@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-05-07,46,43,29,28,22,10
 2019-05-06,55,36,35,26,18,9
 2019-05-05,35,56,32,25,23,9
 2019-05-04,52,47,25,26,21,9
