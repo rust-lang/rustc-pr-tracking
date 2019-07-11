@@ -7,7 +7,7 @@ also available with graphs of the collected data.
 
 The content of this repository is released under the MIT license.
 
-[![Build Status](https://travis-ci.org/rust-lang-nursery/rustc-pr-tracking.svg?branch=master)](https://travis-ci.org/rust-lang-nursery/rustc-pr-tracking)
+[![Build Status](https://travis-ci.com/rust-lang-nursery/rustc-pr-tracking.svg?branch=master)](https://travis-ci.com/rust-lang-nursery/rustc-pr-tracking)
 
 ## Adding new graphs
 
