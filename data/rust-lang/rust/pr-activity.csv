@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-07-25,74,76,27,26,18,10
 2019-07-24,74,66,30,27,18,10
 2019-07-23,63,66,37,39,17,11
 2019-07-22,62,47,43,45,16,11
