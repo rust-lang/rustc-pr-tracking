@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2019-08-01,1,0,1,1,0,14
 2019-07-31,0,0,1,1,0,14
 2019-07-30,0,0,1,1,0,14
 2019-07-29,0,0,1,1,0,14
