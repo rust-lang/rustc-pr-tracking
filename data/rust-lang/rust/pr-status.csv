@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2019-10-28,44,72,9,1,0,21,28,3
 2019-10-27,49,71,9,2,0,23,17,3
 2019-10-26,54,62,10,3,0,22,20,3
 2019-10-25,45,77,13,1,0,20,23,3
