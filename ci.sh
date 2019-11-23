@@ -30,8 +30,8 @@ GIT_REPO="rust-lang-nursery/rustc-pr-tracking"
 GIT_BRANCH="master"
 
 
-if [[ -z "${TRAVIS+x}" ]]; then
-    echo "Error: this script is meant to be run on Travis CI."
+if [[ -z "${GITHUB_ACTIONS}" ]]; then
+    echo "Error: this script is meant to be run on GitHub Actions."
     exit 1
 fi
 
