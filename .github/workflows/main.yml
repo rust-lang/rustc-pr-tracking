@@ -1,0 +1,19 @@
+name: refresh data
+
+on:
+  schedule:
+    - cron: "10 0 * * *"
+
+jobs:
+  refresh:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run updater
+      run: |
+        pip install requests
+        ./ci.sh
+      env:
+        GITHUB_TOKEN: "{{ secrets.GITHUB_TOKEN }}"
