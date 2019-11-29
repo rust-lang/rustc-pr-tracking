@@ -73,6 +73,7 @@ def get_issues_count(http_session, repo, jinja_env, query, param):
     )
 
     while True:
+        print(f"Querying {query}")
         res = http_session.get(API_URL, params={"q": query})
 
         # Properly handle rate limits
