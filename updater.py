@@ -38,7 +38,7 @@ API_URL = "https://api.github.com/search/issues"
 # allows the CSV files to use `{{param|relative_date}}`
 def filter_relative_date(value):
     def format_relative_date(date):
-        return str(datetime.date.today() - datetime.timedelta(days=int(date)))
+        return str(datetime.date.today() - datetime.timedelta(days=int(date))) + "T00:00:00+00:00"
 
     # Support date ranges
     if ".." in value:
