@@ -84,6 +84,7 @@ def get_issues_count(http_session, repo, jinja_env, query, param):
             continue
 
         data = res.json()
+        print(data)
         if "errors" in data:
             for error in data["errors"]:
                 print("Error while searching for '%s': %s" % (query, error["message"]))
