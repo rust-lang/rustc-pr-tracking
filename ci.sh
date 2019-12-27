@@ -26,7 +26,7 @@ IFS=$'\n\t'
 GIT_COMMIT_MESSAGE="Automatic stats update"
 GIT_EMAIL="7378925+stats-updater@users.noreply.github.com"
 GIT_NAME="stats updater"
-GIT_REPO="rust-lang-nursery/rustc-pr-tracking"
+GIT_REPO="rust-lang/rustc-pr-tracking"
 GIT_BRANCH="master"
 
 
