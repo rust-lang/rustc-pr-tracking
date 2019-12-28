@@ -57,5 +57,7 @@ else
         -c "user.name=${GIT_NAME}" \
         -c "user.email=${GIT_EMAIL}" \
         commit -m "${GIT_COMMIT_MESSAGE}"
-    git push "https://x-token:${GITHUB_TOKEN}@github.com/${GIT_REPO}" "${GIT_BRANCH}"
+    echo "$GITHUB_DEPLOY_KEY" > id_ed25519
+    GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i id_ed25519"
+    git push "git@github.com/${GIT_REPO}" "${GIT_BRANCH}"
 fi
