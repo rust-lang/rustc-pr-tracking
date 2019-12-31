@@ -59,5 +59,5 @@ else
         commit -m "${GIT_COMMIT_MESSAGE}"
     echo "$GITHUB_DEPLOY_KEY" > id_ed25519
     GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i id_ed25519"
-    git push "git@github.com/${GIT_REPO}" "${GIT_BRANCH}"
+    git push "git@github.com:${GIT_REPO}" "${GIT_BRANCH}"
 fi
