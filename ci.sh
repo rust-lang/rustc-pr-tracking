@@ -58,8 +58,10 @@ else
         -c "user.email=${GIT_EMAIL}" \
         commit -m "${GIT_COMMIT_MESSAGE}"
     echo "$GITHUB_DEPLOY_KEY" > id_ed25519
+    chmod 600 ./id_ed25519
     echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6lH13xPOhsJjBjzGYNNfNnJKkX1kr+d7Qbt9cd4w4V" \
 	> id_ed25519.pub
+    chmod 644 ./id_ed25519.pub
     export GIT_SSH_COMMAND="ssh -vv -o StrictHostKeyChecking=no -i id_ed25519"
     git push "git@github.com:${GIT_REPO}" "${GIT_BRANCH}"
 fi
