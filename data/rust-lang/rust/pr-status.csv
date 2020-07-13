@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2020-07-13,62,139,6,3,0,18,26,0
 2020-07-12,64,147,6,3,0,18,19,0
 2020-07-11,61,149,7,3,0,18,29,0
 2020-07-10,66,147,7,3,0,18,32,0
