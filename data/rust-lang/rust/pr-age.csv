@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2020-08-26,18,24,24,31,62,110
 2020-08-25,16,16,22,29,65,110
 2020-08-24,20,20,19,28,68,109
 2020-08-23,13,20,22,27,63,114
