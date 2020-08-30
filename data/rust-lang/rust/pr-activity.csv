@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2020-08-30,75,62,50,46,25,10
 2020-08-29,78,51,50,46,17,8
 2020-08-28,64,60,40,50,24,8
 2020-08-27,66,76,43,56,24,6
