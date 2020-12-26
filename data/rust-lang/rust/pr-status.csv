@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2020-12-26,82,228,18,0,0,29,5,0
 2020-12-25,83,226,18,1,0,28,20,0
 2020-12-24,81,224,18,1,0,28,22,0
 2020-12-23,79,227,17,1,0,29,30,0
