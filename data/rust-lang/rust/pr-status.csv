@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2021-07-18,121,234,18,2,3,35,10,1
 2021-07-17,126,235,17,2,3,33,8,2
 2021-07-16,123,239,16,4,3,34,8,2
 2021-07-15,122,234,15,4,3,34,7,2
