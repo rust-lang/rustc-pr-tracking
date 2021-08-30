@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2021-08-30,68,50,119,36,30,51
 2021-08-29,60,64,126,64,23,51
 2021-08-28,57,62,32,73,25,51
 2021-08-27,77,143,37,72,25,51
