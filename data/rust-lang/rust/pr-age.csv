@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2022-01-09,9,23,19,45,78,337
 2022-01-08,14,28,20,50,77,336
 2022-01-07,22,16,10,54,78,335
 2022-01-06,16,17,12,47,73,336
