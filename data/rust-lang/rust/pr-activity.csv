@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2022-04-10,62,77,35,54,121,134
 2022-04-09,82,82,27,56,117,136
 2022-04-08,86,71,29,54,119,131
 2022-04-07,84,46,38,61,130,130
