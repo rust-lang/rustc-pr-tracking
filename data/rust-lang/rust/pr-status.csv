@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2022-08-04,201,300,12,5,2,45,25,0
 2022-08-03,202,295,12,4,2,45,15,0
 2022-08-02,197,294,12,4,2,44,15,0
 2022-08-01,196,292,13,4,2,44,16,0
