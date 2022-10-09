@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2022-10-09,114,80,61,70,69,174
 2022-10-08,94,68,61,71,75,217
 2022-10-07,85,76,55,67,73,216
 2022-10-06,92,67,44,59,74,215
