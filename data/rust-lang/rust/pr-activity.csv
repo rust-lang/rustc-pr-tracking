@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2022-11-28,74,79,43,71,91,241
 2022-11-27,79,61,39,60,94,283
 2022-11-26,76,52,53,65,98,275
 2022-11-25,78,54,39,56,96,274
