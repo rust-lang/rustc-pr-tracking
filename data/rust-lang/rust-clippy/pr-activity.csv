@@ -1,4 +1,4 @@
-is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month,90..31|last 3 months,180..91|last 6 months,<180|more than 6 months
 2023-01-29,4,3,5,5,4,21
 2023-01-28,1,5,5,5,3,21
 2023-01-27,4,5,4,2,2,20
