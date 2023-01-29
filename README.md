@@ -28,6 +28,15 @@ dashboard you're interested in.
 
 You can then run the updater script to populate today's data automatically.
 
+### Adding new params to existing graphs
+
+New params must be added to the end of the list.
+
+```diff
+- is:open label:{{param}},S-waiting-on-author,S-waiting-on-review
++ is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-inactive
+```
+
 ## Running the updater script locally
 
 The updater script can also be run locally: you just need to have Python 3 and
