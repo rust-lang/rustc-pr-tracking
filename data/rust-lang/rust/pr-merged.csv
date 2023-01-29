@@ -1,4 +1,4 @@
-"is:merged merged:{{"">1""|relative_date}} {{param}}",label:merged-by-bors|merged by bors,-label:merged-by-bors|rolled up
+"is:closed closed:{{"">1""|relative_date}} {{param}}",is:merged label:merged-by-bors|merged by bors,is:merged -label:merged-by-bors|rolled up,is:unmerged label:rollup|failed rollup,is:unmerged -label:rollup|not merged
 2023-01-29,8,17
 2023-01-28,7,17
 2023-01-27,7,37
