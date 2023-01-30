@@ -19,6 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from pathlib import Path
 import csv
 import datetime
 import json
@@ -67,7 +68,7 @@ def get_issues_count(http_session, repo, jinja_env, query, param):
         param = param.split("|")[0]
 
     query_tmpl = jinja_env.from_string(query)
-    query = "is:pr repo:{repo} {query}".format(
+    query = "repo:{repo} {query}".format(
         repo=repo,
         query=query_tmpl.render(param=param),
     )
@@ -110,7 +111,9 @@ def update_csv_file(http_session, repo, path):
     jinja_env = jinja2.Environment()
     jinja_env.filters["relative_date"] = filter_relative_date
 
+    issue_type = Path(path).name.split("-", 1)[0]
     query = content[0][0]
+    query = f"is:{issue_type} {query}"
     for param in content[0][1:]:
         content[1].append(str(get_issues_count(http_session, repo, jinja_env, query, param)))
 

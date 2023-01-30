@@ -47,6 +47,7 @@ git checkout "${GIT_BRANCH}"
 python3 updater.py rust-lang/rust
 python3 updater.py rust-lang/crates.io
 python3 updater.py rust-lang/rust-clippy
+python3 updater.py rust-lang/libs-team
 
 
 if git diff --quiet data/; then
