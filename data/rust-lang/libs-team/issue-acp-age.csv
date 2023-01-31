@@ -1,0 +1,2 @@
+is:open label:api-change-proposal created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,90..31|last 3 months,180..91|last 6 months,<180|more than 6 months
+2023-01-30,1,0,2,2,3,16,34,20
