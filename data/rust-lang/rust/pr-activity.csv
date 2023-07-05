@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2023-07-05,691,0,0,0,0,0
 2023-07-04,75,41,65,37,78,333
 2023-07-03,46,61,63,40,88,334
 2023-07-02,57,65,53,40,78,332
