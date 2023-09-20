@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2023-09-20,16,14,10,32,71,494
 2023-09-19,16,13,12,38,66,501
 2023-09-18,12,17,19,47,68,501
 2023-09-17,9,14,19,45,68,506
