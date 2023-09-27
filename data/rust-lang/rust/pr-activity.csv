@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2023-09-27,64,49,52,49,87,329
 2023-09-26,69,45,58,45,96,319
 2023-09-25,52,54,51,41,104,316
 2023-09-24,67,61,52,27,102,317
