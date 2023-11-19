@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2023-11-19,240,290,14,2,0,56,6,1
 2023-11-18,236,295,13,3,0,56,14,1
 2023-11-17,234,305,13,2,0,56,12,1
 2023-11-16,234,298,12,2,0,57,1,1
