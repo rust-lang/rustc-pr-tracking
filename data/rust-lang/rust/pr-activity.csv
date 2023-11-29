@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2023-11-29,82,58,54,68,116,252
 2023-11-28,79,57,65,75,112,254
 2023-11-27,69,50,53,74,104,254
 2023-11-26,66,56,46,78,99,256
