@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2023-12-31,18,17,10,45,71,515
 2023-12-30,16,25,12,44,66,513
 2023-12-29,22,17,17,42,68,510
 2023-12-28,19,8,26,40,64,509
