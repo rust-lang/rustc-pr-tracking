@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2024-04-03,2,5,4,4,9,53
 2024-04-02,6,1,4,4,9,54
 2024-04-01,2,2,5,2,12,55
 2024-03-31,1,1,5,1,12,71
