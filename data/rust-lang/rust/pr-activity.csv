@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2024-06-10,58,59,55,50,70,320
 2024-06-09,68,55,46,64,70,319
 2024-06-08,68,57,31,70,70,317
 2024-06-07,80,78,21,67,71,315
