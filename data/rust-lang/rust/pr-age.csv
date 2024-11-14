@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2024-11-14,27,18,20,41,48,478
 2024-11-13,18,16,22,37,49,473
 2024-11-12,15,18,26,40,53,471
 2024-11-11,18,19,25,37,58,475
