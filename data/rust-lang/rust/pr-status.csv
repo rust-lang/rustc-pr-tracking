@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2024-12-25,225,283,22,1,0,58,3,0
 2024-12-24,226,271,22,2,0,58,9,0
 2024-12-23,227,273,22,0,0,59,13,0
 2024-12-22,230,270,22,1,0,58,15,0
