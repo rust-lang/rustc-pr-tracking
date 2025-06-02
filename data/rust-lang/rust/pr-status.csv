@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2025-06-02,293,282,21,0,0,72,10,0
 2025-06-01,292,282,21,0,0,72,15,0
 2025-05-31,294,274,21,0,0,73,18,0
 2025-05-30,293,274,21,0,0,71,32,0
