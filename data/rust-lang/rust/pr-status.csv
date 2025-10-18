@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2025-10-18,408,293,0,1,0,80,16,0
 2025-10-17,408,283,0,0,0,81,8,0
 2025-10-16,409,272,0,1,0,80,20,0
 2025-10-15,408,263,0,1,0,80,15,0
