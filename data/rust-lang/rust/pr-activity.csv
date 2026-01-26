@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2026-01-26,66,85,71,70,83,542
 2026-01-25,92,89,70,71,87,542
 2026-01-24,92,78,56,62,94,541
 2026-01-23,89,80,56,59,94,550
