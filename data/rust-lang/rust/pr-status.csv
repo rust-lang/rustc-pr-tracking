@@ -1,4 +1,5 @@
 is:open label:{{param}},S-waiting-on-author,S-waiting-on-review,S-waiting-on-team,S-waiting-on-crater,S-waiting-on-bikeshed,S-blocked,S-waiting-on-bors,S-inactive
+2026-03-02,529,313,0,1,0,81,6,0
 2026-03-01,533,308,0,2,0,83,16,0
 2026-02-28,529,313,0,2,0,83,29,0
 2026-02-27,527,308,0,2,0,81,12,0
