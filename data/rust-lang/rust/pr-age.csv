@@ -1,4 +1,5 @@
 is:open created:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2026-05-23,19,16,24,50,91,885
 2026-05-22,10,23,28,48,91,888
 2026-05-21,12,25,27,45,89,880
 2026-05-20,16,22,31,50,85,877
