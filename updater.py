@@ -23,10 +23,10 @@ import csv
 import datetime
 import json
 import os
-import subprocess
 import sys
 import time
 import jinja2
+import jinja2.sandbox
 
 import requests
 
@@ -106,8 +106,9 @@ def update_csv_file(http_session, repo, path):
         content.insert(1, None)
     content[1] = [today]
 
-    # Setup the Jinja2 environment
-    jinja_env = jinja2.Environment()
+    # Setup the Jinja2 environment (sandboxed since the template comes from
+    # untrusted CSV file content)
+    jinja_env = jinja2.sandbox.SandboxedEnvironment()
     jinja_env.filters["relative_date"] = filter_relative_date
 
     query = content[0][0]
