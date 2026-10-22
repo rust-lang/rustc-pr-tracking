@@ -1,4 +1,5 @@
 is:open updated:{{param|relative_date}},>1|today,3..1|last 3 days,7..4|last week,14..8|last 2 weeks,30..15|last month,<30|more than a month
+2026-10-22,98,93,74,111,204,767
 2026-10-21,124,89,86,111,213,762
 2026-10-20,111,73,95,111,211,765
 2026-10-19,85,80,89,113,217,763
